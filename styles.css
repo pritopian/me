@@ -167,11 +167,26 @@ img {
   min-height: 108px;
 }
 
+.media-item--video {
+  grid-template-columns: 260px 1fr;
+}
+
 .media-item img {
   width: 164px;
   height: 98px;
   object-fit: cover;
   filter: saturate(0.94);
+}
+
+.media-item--article img {
+  height: 118px;
+  object-position: center top;
+}
+
+.media-item iframe {
+  width: 260px;
+  height: 146px;
+  border: 0;
 }
 
 .media-item span,
@@ -295,5 +310,16 @@ img {
     width: min(100%, 320px);
     height: auto;
     aspect-ratio: 16 / 10;
+  }
+
+  .media-item--article img {
+    aspect-ratio: 4 / 3;
+    object-position: center top;
+  }
+
+  .media-item iframe {
+    width: min(100%, 320px);
+    height: auto;
+    aspect-ratio: 16 / 9;
   }
 }
