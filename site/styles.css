@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Geist:wght@200;300;400;500&family=Instrument+Serif:ital@0;1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@200;300;400;500&display=swap");
 
 :root {
   --bg: #fefefe;
@@ -144,12 +144,14 @@ img {
 
 .experience-meta p {
   margin: 4px 0 0;
-  font-size: 15px;
+  font-size: 13px;
 }
 
 .experience-item > p {
   margin: 0;
   max-width: 860px;
+  color: #1d1d1d;
+  font-size: 14px;
 }
 
 .media-list {
@@ -181,11 +183,8 @@ img {
 }
 
 .media-item em {
-  display: block;
-  font-family: "Instrument Serif", Georgia, serif;
-  font-size: 1.13em;
   font-style: italic;
-  font-weight: 400;
+  font-weight: 300;
 }
 
 .text-link {
@@ -209,6 +208,12 @@ img {
 
 .bookmark-list a {
   width: fit-content;
+}
+
+.bookmark-pair {
+  display: flex;
+  gap: 10px;
+  margin: 0;
 }
 
 @media (max-width: 720px) {
@@ -264,6 +269,14 @@ img {
   .text-link,
   .bookmark-list a {
     font-size: 16px;
+  }
+
+  .experience-meta p {
+    font-size: 13px;
+  }
+
+  .experience-item > p {
+    font-size: 15px;
   }
 
   .media-item {
