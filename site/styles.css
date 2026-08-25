@@ -175,11 +175,9 @@ img {
 }
 
 .media-item--article img {
-  aspect-ratio: 16 / 7;
-  background: #f7f6f2;
+  aspect-ratio: auto;
   height: auto;
   object-fit: contain;
-  object-position: center top;
 }
 
 .media-item span,
@@ -310,8 +308,7 @@ img {
   }
 
   .media-item--article img {
-    aspect-ratio: 16 / 7;
-    object-position: center top;
+    aspect-ratio: auto;
   }
 
 }
