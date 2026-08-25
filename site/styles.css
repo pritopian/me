@@ -197,6 +197,13 @@ img {
   gap: 10px;
 }
 
+.embed-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 200;
+  line-height: 1.35;
+}
+
 .embed-item .twitter-tweet {
   margin: 0 !important;
 }
