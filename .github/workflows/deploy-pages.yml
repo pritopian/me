@@ -27,11 +27,29 @@ jobs:
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
 
+      - name: Prepare site artifact
+        run: |
+          mkdir -p _site
+          cp index.html styles.css favicon.svg CNAME _site/
+          cp -R assets _site/assets
+
       - name: Upload site
         uses: actions/upload-pages-artifact@v3
         with:
-          path: site
+          path: _site
 
       - name: Deploy site
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Verify homepage
+        run: |
+          for attempt in 1 2 3 4 5; do
+            page="$(curl -fsSL https://pritopian.com/ || true)"
+            if echo "$page" | grep -q "Priyaa K" && echo "$page" | grep -q "https://lica.world/"; then
+              exit 0
+            fi
+            sleep 15
+          done
+          echo "Homepage verification failed: pritopian.com did not show the expected site content."
+          exit 1
