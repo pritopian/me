@@ -293,6 +293,10 @@ img {
     font-size: 16px;
   }
 
+  .media-item span {
+    order: -1;
+  }
+
   .experience-meta p {
     font-size: 13px;
   }
