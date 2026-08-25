@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@200;300;400;500&family=Instrument+Serif:ital@0;1&display=swap");
+
 :root {
   --bg: #fefefe;
   --text: #050505;
@@ -18,7 +20,7 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Geist", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-stretch: normal;
   font-size: 15px;
   font-weight: 200;
@@ -180,8 +182,10 @@ img {
 
 .media-item em {
   display: block;
+  font-family: "Instrument Serif", Georgia, serif;
+  font-size: 1.13em;
   font-style: italic;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .text-link {
