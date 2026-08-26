@@ -147,11 +147,112 @@ img {
   font-size: 13px;
 }
 
-.experience-item > p {
+.experience-content {
+  display: grid;
+  gap: 8px;
+  max-width: 860px;
+}
+
+.experience-item > p,
+.experience-content > p {
   margin: 0;
   max-width: 860px;
   color: #1d1d1d;
   font-size: 14px;
+}
+
+.highlights {
+  max-height: 0;
+  overflow: hidden;
+  color: #73736d;
+  font-size: 14px;
+  opacity: 0;
+  transform: translateY(-2px);
+  transition:
+    max-height 220ms ease,
+    opacity 180ms ease,
+    transform 180ms ease;
+}
+
+.experience-content.is-highlights-open .highlights,
+.experience-content:focus-within .highlights {
+  max-height: 560px;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.highlights-trigger {
+  appearance: none;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 5px;
+  width: fit-content;
+  margin: 0 0 0 4px;
+  padding: 0;
+  border: 0;
+  border-bottom: 1px solid #d8d8d2;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font: inherit;
+  font-size: inherit;
+  font-weight: 200;
+  letter-spacing: 0;
+  line-height: inherit;
+  text-align: left;
+}
+
+.highlights-trigger::after {
+  content: "-->";
+  color: #9a9a93;
+  font-size: 13px;
+  line-height: 1;
+}
+
+.highlights-trigger[aria-expanded="true"]::after {
+  content: "-->";
+}
+
+.highlights-trigger:hover,
+.highlights-trigger:focus-visible {
+  color: var(--hover);
+  outline: none;
+}
+
+.highlights ul {
+  display: grid;
+  gap: 9px;
+  list-style: none;
+  margin: 12px 0 0;
+  padding-left: 0;
+}
+
+.highlights li {
+  position: relative;
+  padding-left: 16px;
+}
+
+.highlights li::before {
+  content: "";
+  position: absolute;
+  top: 0.72em;
+  left: 1px;
+  width: 4px;
+  height: 4px;
+  border-radius: 999px;
+  background: #d0d0ca;
+}
+
+.highlights a {
+  color: #7f7f78;
+  text-decoration: underline;
+  text-decoration-color: #d8d8d2;
+  text-underline-offset: 3px;
+}
+
+.highlights a:hover,
+.highlights a:focus-visible {
+  color: var(--hover);
 }
 
 .media-list {
@@ -292,7 +393,9 @@ img {
     font-size: 13px;
   }
 
-  .experience-item > p {
+  .experience-item > p,
+  .experience-content > p,
+  .highlights {
     font-size: 15px;
   }
 

@@ -46,35 +46,73 @@
               <p>Founder and CEO</p>
               <p>Oct 2023-July 2026</p>
             </div>
-            <p>
-              <a href="https://techcrunch.com/2026/08/25/gamma-acquires-accel-backed-design-startup-lica/">
-                Acquired by Gamma.
-              </a>
-              <br />
-              Lica is a platform to train and evaluate taste in creative AI models. The foundational
-              graphic design models trained on our infra were deployed by large enterprises in
-              fashion and CPG to scale visual marketing without losing their brand identity. Raised
-              $5.1M, backed by Accel, South Park Commons, Village Global, and amazing angels.
-            </p>
+            <div class="experience-content">
+              <p>
+                <a href="https://techcrunch.com/2026/08/25/gamma-acquires-accel-backed-design-startup-lica/">
+                  Acquired by Gamma.
+                </a>
+                <br />
+                Lica is a platform to train and evaluate taste in creative AI models. The foundational
+                graphic design models trained on our infra were deployed by large enterprises in
+                fashion and CPG to scale visual marketing without losing their brand identity. Raised
+                $5.1M, backed by Accel, South Park Commons, Village Global, and amazing angels.
+                <button
+                  class="highlights-trigger"
+                  type="button"
+                  aria-expanded="false"
+                  aria-controls="lica-highlights"
+                >
+                  A few highlights
+                </button>
+              </p>
+              <div class="highlights" id="lica-highlights">
+                <ul>
+                  <li>
+                    Built the largest graphic design dataset of 1.5 Million+ layered compositions across
+                    presentations, posters, social media, and other design formats.
+                    <a href="https://x.com/pritopian/status/2035026611540746746">post</a>
+                    <span>|</span>
+                    <a href="https://arxiv.org/pdf/2603.16098v1">arxiv</a>
+                  </li>
+                  <li>
+                    Trained in-house graphic design models that generated structured, editable
+                    objects rather than flattened PNGs, enabling layer-level control and iteration.
+                    <a href="https://x.com/pritopian/status/2037167928114896987">x</a>
+                  </li>
+                  <li>
+                    Deployed agentic systems tuned for large ecomm brands in fashion and CPG, with
+                    dynamic token allocation and routing across open- and closed-source models to
+                    automate creative production at scale.
+                  </li>
+                  <li>
+                    Published Graphic Design Bench (GDB), the first benchmark evaluating frontier models
+                    on real-world design tasks drawn from professional creative workflows in
+                    enterprises.
+                    <a href="https://lica.world/blog/gdb-real-world-benchmark-for-graphic-design">blog</a>
+                    <span>|</span>
+                    <a href="https://github.com/lica-world/GDB">github</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </article>
 
           <article class="experience-item">
             <div class="experience-meta">
               <h3>Waymo</h3>
+              <p>Product Lead</p>
               <p>Nov 2022-Sep 2023</p>
             </div>
-            <p>
-              Product lead for multilane maneuvers and driver behavior. Got to work with some of
-              the smartest people.
-            </p>
+            <p>Waymo driver behavior in multilane roads and highways.</p>
           </article>
 
           <article class="experience-item">
             <div class="experience-meta">
               <h3>Snap</h3>
+              <p>Product Lead</p>
               <p>Jan 2022-Nov 2022</p>
             </div>
-            <p>Product lead for perception based AR experiences for consumers and enterprises.</p>
+            <p>Led 0 to 1 perception based monetizable AR experiences for creators and enterprises.</p>
           </article>
 
           <article class="experience-item">
@@ -83,11 +121,10 @@
               <p>Apr 2019-Jan 2022</p>
             </div>
             <p>
-              Created Microsoft Designer. Started with Designer in PowerPoint and grew it into a
-              product of its own, powering presentations, social media, and other visual artifacts
-              across the M365 suite. Death by PowerPoint continues to be a meme, but since leaving,
-              my respect for the founders of PowerPoint and the thought they put into the graphic
-              engine has grown immensely.
+              Created Microsoft Designer, an AI powered graphic design engine to generate visual
+              artifacts of all types. Started
+              with PowerPoint presentation design and grew it into an application of its own powering
+              all visual creation in M365 suite.
             </p>
           </article>
 
@@ -97,7 +134,7 @@
               <p>Jun 2021-Nov 2023</p>
             </div>
             <p>
-              iSPIRT is an organization behind India Stack and other digital public goods. Worked
+              iSPIRT is the organization behind India Stack and other digital public goods. Worked
               with folks way smarter than me to define DEPA for Model Training: a framework to
               unlock siloed, high-value proprietary enterprise and government data safely to train
               localized, context-aware AI models.
@@ -199,6 +236,36 @@
         </div>
       </section>
     </main>
+    <script>
+      document.querySelectorAll(".experience-content").forEach((section) => {
+        const trigger = section.querySelector(".highlights-trigger");
+        const panel = section.querySelector(".highlights");
+
+        if (!trigger || !panel) {
+          return;
+        }
+
+        const setOpen = (open) => {
+          section.classList.toggle("is-highlights-open", open);
+          trigger.setAttribute("aria-expanded", String(open));
+        };
+
+        trigger.addEventListener("click", () => {
+          const pinned = section.dataset.highlightsPinned === "true";
+          section.dataset.highlightsPinned = pinned ? "false" : "true";
+          setOpen(!pinned);
+        });
+
+        trigger.addEventListener("mouseenter", () => setOpen(true));
+        trigger.addEventListener("focus", () => setOpen(true));
+
+        section.addEventListener("mouseleave", () => {
+          if (section.dataset.highlightsPinned !== "true") {
+            setOpen(false);
+          }
+        });
+      });
+    </script>
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
   </body>
 </html>
